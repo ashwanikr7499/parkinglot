@@ -6,9 +6,9 @@ import lombok.Setter;
 public class InputData {
 
     @Getter @Setter
-    private int vehicleNo;
+    private String vehicleNo;
 
     @Getter @Setter
-    private int time;
+    private String time;
 
 }
