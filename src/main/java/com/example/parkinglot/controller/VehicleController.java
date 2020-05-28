@@ -30,6 +30,19 @@ public class VehicleController
         return vehicleRepo.findAll();
     }
 
+
+    @GetMapping("/beforeTime/{time}")
+    public List<Vehicle> getVehicleBeforeTime(@PathVariable(value = "time") String time)
+    {
+        return vehicleRepo.findVehiclesByTimeBefore(time);
+    }
+
+    @GetMapping("/afterTime")
+    public List<Vehicle> getVehicleAfterTime(@PathVariable(value = "time") String time)
+    {
+        return vehicleRepo.findVehiclesByTimeAfter(time);
+    }
+
     @PostMapping("/getTicket")
     public String getTicket(@RequestBody Vehicle vehicle)
     {

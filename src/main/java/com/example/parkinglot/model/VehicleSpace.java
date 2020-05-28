@@ -13,21 +13,17 @@ import javax.persistence.*;
 //entity listener
 public class VehicleSpace {
 
-    @Getter @Setter
-    @Id @Column(name = "slotNo", nullable = false)
+    @Id @Getter @Setter @Column(name = "slotNo", nullable = false)
     private long slotNo;
 
-    @Getter @Setter
-    @Column(name = "vehicleNo", nullable = false)
+    @Getter @Setter @Column(name = "vehicleNo", nullable = false)
     private String vehicleNo;
 
-    @Getter @Setter
-    @Column(name = "slotType", nullable = false)
+    @Getter @Setter @Column(name = "slotType", nullable = false)
     private String slotType;
 
 
-    @Getter @Setter
-    @Column(name = "isEmpty", nullable = false)
+    @Getter @Setter @Column(name = "isEmpty", nullable = false)
     private boolean isEmpty;
 
 }

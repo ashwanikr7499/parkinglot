@@ -44,17 +44,17 @@ public class VehicleSpaceController {
     @GetMapping("/{slotType}")
     public List<VehicleSpace> getAllSlotsByType(@PathVariable(value = "slotType") String slotType)
     {
-        return vehicleSpaceRepo.findVehicleSpaceBySlotType(slotType);
+        return vehicleSpaceRepo.findVehiclesSpaceBySlotType(slotType);
     }
     @GetMapping("/{slotType}/empty")
     public List<VehicleSpace> getEmptySlotsByType(@PathVariable(value = "slotType") String slotType)
     {
-        return vehicleSpaceRepo.findVehicleSpaceBySlotTypeAndEmpty(slotType,true);
+        return vehicleSpaceRepo.findVehiclesSpaceBySlotTypeAndEmpty(slotType,true);
     }
     @GetMapping("/{slotType}/full")
     public List<VehicleSpace> getFullSlotsByType(@PathVariable(value = "slotType") String slotType)
     {
-        return vehicleSpaceRepo.findVehicleSpaceBySlotTypeAndEmpty(slotType,false);
+        return vehicleSpaceRepo.findVehiclesSpaceBySlotTypeAndEmpty(slotType,false);
     }
 }
 
