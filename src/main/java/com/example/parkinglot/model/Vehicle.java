@@ -7,10 +7,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+
 import javax.persistence.*;
 
 @Entity @AllArgsConstructor @NoArgsConstructor
 @Table(name = "vehicle")
+
+@EntityListeners(AuditingEntityListener.class)
 public class Vehicle {
 
     @Id @Getter @Setter

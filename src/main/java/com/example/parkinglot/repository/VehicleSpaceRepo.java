@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface VehicleSpaceRepo extends JpaRepository<VehicleSpace, Long> {
 
-    List<VehicleSpace> findVehiclesSpaceBySlotType(String vehicleSpace);
-    List<VehicleSpace> findVehiclesSpaceBySlotTypeAndEmpty(String vehicleSpace, boolean isEmpty);
+    List<VehicleSpace> findVehicleSpacesBySlotType(String vehicleSpace);
+    List<VehicleSpace> findVehicleSpacesByVehicleNoAndSlotType(String vehicleNo,String slotType);
+
 }

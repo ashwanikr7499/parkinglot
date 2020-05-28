@@ -11,5 +11,6 @@ public interface VehicleRepo extends JpaRepository<Vehicle, String> {
     List<Vehicle> findVehiclesByTimeAfterAndVehicleType(String time,String vehicleType);
     List<Vehicle> findVehiclesByTimeBefore(String time);
     List<Vehicle> findVehiclesByTimeAfter(String time);
-    List<Vehicle> findVehiclesByVehicleTypeOrderByTimeTimeAsc(String vehicleType,String time);
+    List<Vehicle> findVehiclesByVehicleTypeOrderByTimeAsc(String vehicleType);
 }
+

@@ -2,7 +2,6 @@ package com.example.parkinglot.controller;
 
 import com.example.parkinglot.model.VehicleSpace;
 import com.example.parkinglot.repository.VehicleSpaceRepo;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +9,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
-@RequestMapping("/slots/")
+@RequestMapping("/slots")
 public class VehicleSpaceController {
 
     @Autowired
@@ -44,17 +43,13 @@ public class VehicleSpaceController {
     @GetMapping("/{slotType}")
     public List<VehicleSpace> getAllSlotsByType(@PathVariable(value = "slotType") String slotType)
     {
-        return vehicleSpaceRepo.findVehiclesSpaceBySlotType(slotType);
+        return vehicleSpaceRepo.findVehicleSpacesBySlotType(slotType);
     }
     @GetMapping("/{slotType}/empty")
     public List<VehicleSpace> getEmptySlotsByType(@PathVariable(value = "slotType") String slotType)
     {
-        return vehicleSpaceRepo.findVehiclesSpaceBySlotTypeAndEmpty(slotType,true);
+        return vehicleSpaceRepo.findVehicleSpacesByVehicleNoAndSlotType("none",slotType);
     }
-    @GetMapping("/{slotType}/full")
-    public List<VehicleSpace> getFullSlotsByType(@PathVariable(value = "slotType") String slotType)
-    {
-        return vehicleSpaceRepo.findVehiclesSpaceBySlotTypeAndEmpty(slotType,false);
-    }
+
 }
 

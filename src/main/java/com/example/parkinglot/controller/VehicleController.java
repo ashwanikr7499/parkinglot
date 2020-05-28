@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/vehicles/")
+@RequestMapping("/vehicles")
 public class VehicleController
 {
 
@@ -24,6 +24,7 @@ public class VehicleController
 
     @Autowired
     VehicleSpaceRepo vehicleSpaceRepo;
+
     int[] cost_perh ={5,10,15,20};
     @GetMapping("/all")
     public List<Vehicle> getAllVehicles() {
