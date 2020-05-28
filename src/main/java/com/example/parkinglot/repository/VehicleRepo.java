@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface VehicleRepo extends JpaRepository<Vehicle, String> {
 
+    List<Vehicle> findVehiclesByVehicleType(String vehicleType);
     List<Vehicle> findVehiclesByTimeBeforeAndVehicleType(String time,String vehicleType);
     List<Vehicle> findVehiclesByTimeAfterAndVehicleType(String time,String vehicleType);
     List<Vehicle> findVehiclesByTimeBefore(String time);

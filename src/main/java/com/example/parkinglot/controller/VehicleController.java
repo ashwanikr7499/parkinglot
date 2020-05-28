@@ -38,10 +38,17 @@ public class VehicleController
         return vehicleRepo.findVehiclesByTimeBefore(time);
     }
 
-    @GetMapping("/afterTime")
+
+    @GetMapping("/afterTime/{time}")
     public List<Vehicle> getVehicleAfterTime(@PathVariable(value = "time") String time)
     {
         return vehicleRepo.findVehiclesByTimeAfter(time);
+    }
+
+    @GetMapping("/{vehicleType}")
+    public List<Vehicle> getVehiclesByType(@PathVariable(value = "vehicleType") String vehicleType)
+    {
+        return vehicleRepo.findVehiclesByVehicleType(vehicleType);
     }
 
     @PostMapping("/getTicket")
@@ -65,7 +72,7 @@ public class VehicleController
         //saving vehicle
         vehicleRepo.save(vehicle);
 
-        return "The Vehicle "+vehicle.getVehicleNo()+"entered successfully";
+        return "The Vehicle "+vehicle.getVehicleNo()+" entered successfully";
 
     }
 
