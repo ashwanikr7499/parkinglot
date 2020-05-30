@@ -27,6 +27,6 @@ public class VehicleSpace {
 
 
     @Getter @Setter @Column(name = "isEmpty", nullable = false)
-    private boolean isEmpty;
+    private String isEmpty;
 
 }

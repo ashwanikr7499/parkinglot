@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/slots")
+@CrossOrigin( "http://localhost:3000")
 public class VehicleSpaceController {
 
     @Autowired
@@ -20,16 +21,16 @@ public class VehicleSpaceController {
     {
         for(long i=1;i<=4;i++)
         {
-            VehicleSpace vehicleSpace_2=new VehicleSpace(i,"none","2",true);
+            VehicleSpace vehicleSpace_2=new VehicleSpace(i,"none","2","true");
             vehicleSpaceRepo.save(vehicleSpace_2);
 
-            VehicleSpace vehicleSpace_3=new VehicleSpace(10+i,"none","3",true);
+            VehicleSpace vehicleSpace_3=new VehicleSpace(10+i,"none","3","true");
             vehicleSpaceRepo.save(vehicleSpace_3);
 
-            VehicleSpace vehicleSpace_4=new VehicleSpace(20+i,"none","4",true);
+            VehicleSpace vehicleSpace_4=new VehicleSpace(20+i,"none","4","true");
             vehicleSpaceRepo.save(vehicleSpace_4);
 
-            VehicleSpace vehicleSpace_heavy=new VehicleSpace(30+i,"none","heavy",true);
+            VehicleSpace vehicleSpace_heavy=new VehicleSpace(30+i,"none","heavy","true");
             vehicleSpaceRepo.save(vehicleSpace_heavy);
         }
     }

@@ -16,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/vehicles")
+@CrossOrigin( "http://localhost:3000")
 public class VehicleController
 {
 
@@ -50,7 +51,7 @@ public class VehicleController
     {
         return vehicleRepo.findVehiclesByVehicleType(vehicleType);
     }
-
+    @CrossOrigin( "http://localhost:3000")
     @PostMapping("/getTicket")
     public String getTicket(@RequestBody Vehicle vehicle)
     {
@@ -62,11 +63,11 @@ public class VehicleController
             return "Invalid Slot Number";
         else if(!temp_vehicleSpace.get().getSlotType().equals(vehicle.getVehicleType()))
             return "The slot is not meant for the vehicle";
-        else if(!temp_vehicleSpace.get().isEmpty())
+        else if(temp_vehicleSpace.get().getIsEmpty().equals("false"))
             return "The slot is not empty";
 
         //saving space
-        VehicleSpace vehicleSpace=new VehicleSpace(vehicle.getSlotNo(),vehicle.getVehicleNo(),vehicle.getVehicleType(),false);
+        VehicleSpace vehicleSpace=new VehicleSpace(vehicle.getSlotNo(),vehicle.getVehicleNo(),vehicle.getVehicleType(),"false");
         vehicleSpaceRepo.save(vehicleSpace);
 
         //saving vehicle
@@ -95,7 +96,7 @@ public class VehicleController
         float diff=(date2.getTime()-date1.getTime())/3600000.0f;
         float cost=diff*cost_perh[vehicleTypeToInt(temp_vehicle.get().getVehicleType())];
         //creating space
-        VehicleSpace vehicleSpace=new VehicleSpace(temp_vehicle.get().getSlotNo(),temp_vehicle.get().getVehicleNo(),temp_vehicle.get().getVehicleType(),true);
+        VehicleSpace vehicleSpace=new VehicleSpace(temp_vehicle.get().getSlotNo(),temp_vehicle.get().getVehicleNo(),temp_vehicle.get().getVehicleType(),"true");
         vehicleSpaceRepo.save(vehicleSpace);
 
         //deleting vehicle
