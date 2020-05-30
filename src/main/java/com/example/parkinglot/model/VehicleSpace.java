@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Entity @AllArgsConstructor @NoArgsConstructor
 @Table(name = "vehicleSpace")
 
-@EntityListeners(AuditingEntityListener.class)
 //entity listener
 public class VehicleSpace {
 

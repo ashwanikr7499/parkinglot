@@ -13,7 +13,6 @@ import javax.persistence.*;
 @Entity @AllArgsConstructor @NoArgsConstructor
 @Table(name = "vehicle")
 
-@EntityListeners(AuditingEntityListener.class)
 public class Vehicle {
 
     @Id @Getter @Setter
